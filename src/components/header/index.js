@@ -7,7 +7,7 @@ import SearchBox from '../search_box_component';
 import "../../styles/header.scss";
 
 const Header = () => (
-  <div class="top-navbar">
+  <div className="top-navbar">
     <Container>
       <Navbar>
         <Navbar.Brand>
@@ -15,7 +15,7 @@ const Header = () => (
         </Navbar.Brand>
 
         <Navbar.Menu>
-          <Navbar.Segment as="div" class="navbar-item navbar-center">
+          <Navbar.Segment as="div" className="navbar-item navbar-center">
             <SearchBox />
           </Navbar.Segment>
         </Navbar.Menu>
