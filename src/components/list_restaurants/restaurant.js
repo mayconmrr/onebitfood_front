@@ -20,7 +20,7 @@ const Restaurant = (props) => (
           <Icon size="medium" color="warning">
             <FaStar />
           </Icon>
-          <span class="has-text-warning has-text-weight-bold">{props.review}</span>
+          <span class="has-text-warning has-text-weight-bold">{props.review || 0}</span>
         </Column>
       </Column.Group>
     </Box>
