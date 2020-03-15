@@ -1,9 +1,46 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { Input, Column, Title, Button, Field, Control, Label, Select } from "rbx";
+import { bindActionCreators } from 'redux';
+import { setAddress } from "../../actions/address";
+import { hideModal } from "../../actions/modal";
 
 import statesList from './states_list';
 
 class AddressForm extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      state: this.props.address.state,
+      city: this.props.address.city,
+      street: this.props.address.street,
+      number: this.props.address.number,
+      cep: this.props.address.cep,
+      complement: this.props.address.complement,
+      reference: this.props.address.reference
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    this.props.setAddress(this.state)
+    this.props.hideModal('ADDRESS_MODAL')
+    event.preventDefault();
+  }
+
   render() {
     return (
       <Fragment>
@@ -16,12 +53,12 @@ class AddressForm extends Component {
         </Column.Group>
         <Column.Group>
           <Column size={10} offset={1}>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <Field>
                 <Label>Estado</Label>
                 <Control>
                   <Select.Container fullwidth>
-                    <Select required>
+                    <Select required name="state" value={this.state.state} onChange={this.handleInputChange}>
                       {statesList.map((state, i) => {
                         return <Select.Option key={i} value={state}>{state}</Select.Option>
                       })}
@@ -35,6 +72,9 @@ class AddressForm extends Component {
                   <Input
                     type="text"
                     placeholder="São Paulo..."
+                    name="city"
+                    value={this.state.city}
+                    onChange={this.handleInputChange}
                     required
                   />
                 </Control>
@@ -45,7 +85,10 @@ class AddressForm extends Component {
                 <Control>
                   <Input
                     type="text"
-                    placeholder="Av Paulista..."
+                    placeholder='Av Paulista...'
+                    name="street"
+                    value={this.state.street}
+                    onChange={this.handleInputChange}
                     required
                   />
                 </Control>
@@ -58,7 +101,10 @@ class AddressForm extends Component {
                     <Control>
                       <Input
                         type="text"
-                        placeholder="15"
+                        placeholder='1234'
+                        name="number"
+                        value={this.state.number}
+                        onChange={this.handleInputChange}
                         required
                       />
                     </Control>
@@ -68,7 +114,10 @@ class AddressForm extends Component {
                     <Control>
                       <Input
                         type="text"
-                        placeholder="13720-000"
+                        placeholder='13720-000'
+                        name="cep"
+                        value={this.state.cep}
+                        onChange={this.handleInputChange}
                         required
                       />
                     </Control>
@@ -81,7 +130,10 @@ class AddressForm extends Component {
                 <Control>
                   <Input
                     type="text"
-                    placeholder="Av Paulista..." />
+                    name="complement"
+                    value={this.state.complement}
+                    onChange={this.handleInputChange}
+                  />
                 </Control>
               </Field>
 
@@ -90,7 +142,10 @@ class AddressForm extends Component {
                 <Control>
                   <Input
                     type="text"
-                    placeholder="Av Paulista..." />
+                    name="reference"
+                    value={this.state.reference}
+                    onChange={this.handleInputChange}
+                  />
                 </Control>
               </Field>
               <br />
@@ -110,4 +165,10 @@ class AddressForm extends Component {
 
 }
 
-export default AddressForm;
+const mapStateToProps = store => ({
+  address: store.addressState.address
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ setAddress, hideModal }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddressForm);
