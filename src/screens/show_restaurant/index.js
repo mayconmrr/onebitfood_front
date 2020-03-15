@@ -6,6 +6,8 @@ import api from "../../services/api";
 
 import CategoryProducts from "../../components/category_products";
 
+import "../../styles/restaurants.scss";
+
 class ShowRestaurant extends Component {
   state = {
     restaurant: {}
@@ -41,8 +43,8 @@ class ShowRestaurant extends Component {
       </Box>
 
       {this.state.restaurant.product_categories &&
-        this.state.restaurant.product_categories.map((category, i) => {
-          return <CategoryProducts {...category} key={i} />
+        this.state.restaurant.product_categories.map(category => {
+          return <CategoryProducts restaurant={this.state.restaurant} {...category} />
         })
       }
     </Fragment>
