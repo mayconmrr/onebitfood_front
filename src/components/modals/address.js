@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Box, Column, Icon } from "rbx";
+import { Box, Column, Icon, Title } from "rbx";
 import { bindActionCreators } from 'redux';
 import { hideModal } from "../../actions/modal";
 import { FaTimes } from 'react-icons/fa';
 
+import AddressForm from '../address_form'
 
 class AddressModal extends Component {
 
   render() {
     return (
       <Column.Group centered>
-        <Column size="3" mobile={{ 'size': 10, 'offset': 1 }} textAlign="centered">
+        <Column size="3" mobile={{ 'size': 10, 'offset': 1 }}>
           <Box>
             <Column.Group>
               <Column size={12} textAlign="right">
@@ -20,11 +21,7 @@ class AddressModal extends Component {
                 </Icon>
               </Column>
             </Column.Group>
-            <Column.Group>
-              <Column size={12}>
-                Meu modal
-              </Column>
-            </Column.Group>
+            <AddressForm />
           </Box>
         </Column>
       </Column.Group>
