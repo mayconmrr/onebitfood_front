@@ -41,7 +41,7 @@ class AddProductForm extends Component {
       <Fragment>
         <Column.Group>
           <Column size={10} offset={1}>
-            <img src={this.props.product.image_url} />
+            <img src={this.props.product.image_url} alt="new" />
             <Title size={6} className="has-text-custom-black-darker">
               {this.props.product.name}
             </Title>

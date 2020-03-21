@@ -32,7 +32,7 @@ class Order extends Component {
 
   render() {
     console.log(this.props)
-    if (this.props.restaurant == undefined || this.props.order.length <= 0) {
+    if (this.props.restaurant === undefined || this.props.order.length <= 0) {
       return (
         <Column size={6} offset={3}>
           <Title size={5} className="has-text-custom-gray-darker">Carrinho Vazio</Title>
@@ -121,7 +121,7 @@ class Order extends Component {
               </Column.Group>
             </div>
           </Column>
-          {this.props.finish_btn_active != false &&
+          {this.props.finish_btn_active !== false &&
             <Column size={12} align="center">
               <Button size="medium" color="custom-orange" className="has-text-white" onClick={() => this.closeOrder()}>
                 Finalizar Pedido

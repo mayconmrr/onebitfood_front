@@ -36,12 +36,12 @@ class Categories extends Component {
           <Slider {...slickSettings}>
             {this.state.categories.map((category, i) => {
               return (
-                <a href="#" onClick={() => { this.filterByCategory(category) }}>
+                <button onClick={() => { this.filterByCategory(category) }}>
                   <div className="slider-item" key={i}>
                     <img src={category.image_url} alt="new" />
                     <span>{category.title}</span>
                   </div>
-                </a>
+                </button>
               )
             })}
           </Slider>

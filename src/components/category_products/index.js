@@ -15,7 +15,7 @@ const CategoryProducts = (props) => (
         return (
           <Column key={i} size="4">
             <Box>
-              <a href="#" onClick={() => props.showModal('ADD_PRODUCT', { 'product': product, 'restaurant': props.restaurant })}>
+              <button onClick={() => props.showModal('ADD_PRODUCT', { 'product': product, 'restaurant': props.restaurant })}>
                 <Column.Group>
                   <Column size="6" offset={1}>
                     <Title size="6">{product.name}</Title>
@@ -26,7 +26,7 @@ const CategoryProducts = (props) => (
                     <Image src={product.image_url} width="50%" />
                   </Column>
                 </Column.Group>
-              </a>
+              </button>
             </Box>
           </Column>
         )

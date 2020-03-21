@@ -17,7 +17,7 @@ const Header = (props) => (
     <Container>
       <Navbar>
         <Navbar.Brand onClick={e => history.push('/')}>
-          <img src={LogoImage} />
+          <img src={LogoImage} alt="new" />
         </Navbar.Brand>
 
         <Navbar.Menu>

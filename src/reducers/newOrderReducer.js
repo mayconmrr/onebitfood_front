@@ -5,7 +5,7 @@ export default (state = { order: [] }, action) => {
     case ADD_ORDER_ITEM:
       let order = []
 
-      if (state.restaurant && state.restaurant.id == action.restaurant.id) {
+      if (state.restaurant && state.restaurant.id === action.restaurant.id) {
         order = state.order;
       }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// eslint-disable-next-line
 import { Box, Column, Icon, Title } from "rbx";
 import { bindActionCreators } from 'redux';
 import { hideModal } from "../../actions/modal";

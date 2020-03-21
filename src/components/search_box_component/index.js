@@ -18,7 +18,7 @@ class SearchBox extends Component {
   }
 
   search = (event) => {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
       this.props.searchRestaurants(this.state.search);
     }
   }

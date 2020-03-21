@@ -21,7 +21,7 @@ class ShowOrder extends Component {
             <Column size={8} offset={2} textAlign="centered">
               <Box>
                 {
-                  (this.props.order.status == 'waiting') ? (
+                  (this.props.order.status === 'waiting') ? (
                     <Fragment>
                       <Title size={4} className="has-text-custom-green-darker status_msg">
                         Pedido a caminho
