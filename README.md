@@ -1,7 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# OneBitFood
+Online restaurant ordering and food delivery.
+
+- - - - -
+# App Preview
+`Home page`
+
+  ![](public/home.png)
+
+- - - - -
+
+`Add food to order`
+
+  ![](public/food.png)
+- - - - -
+
+`Cart`
+
+  ![](public/cart.png)
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `yarn start`
