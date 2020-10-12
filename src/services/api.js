@@ -1,6 +1,12 @@
 import axios from "axios";
 
-const url = axios.create({ baseURL: "https://onebitfood-backend.herokuapp.com" })
+let baseUrl = "http://localhost:3001"
+
+if (process.env.NODE_ENV === 'production') {
+  baseUrl = process.env.REACT_APP_URL
+}
+
+const url = axios.create({ baseURL: baseUrl })
 
 export default {
   loadRestaurants: (address, category) => {
